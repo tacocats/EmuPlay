@@ -23,7 +23,7 @@ npm run build:desktop && npm run e2e:desktop   # Playwright desktop e2e (xvfb-ru
 npm run e2e:build && npm run e2e:test     # Detox, Android TV AVD `Television_1080p`, needs Metro running
 ```
 
-- Gradle needs JDK 17; set `JAVA_HOME` to your JDK 17 installation. JDK 21 breaks it.
+- `mise.toml` pins Node 22.13 and JDK 17 to match CI, and sets `JAVA_HOME` and `ANDROID_HOME`. Run `mise install` once. Without mise, Gradle still needs JDK 17: set `JAVA_HOME` to your JDK 17 installation, because JDK 21 breaks it. Machine-specific env goes in the git-ignored `mise.local.toml`.
 - To run Metro on a non-default port, set `RCT_METRO_PORT` for both the Android build and `npm start -- --port <port>`, because the port is baked into the debug APK. `start.sh` launches the TV emulator and app on 8082 this way.
 - lefthook pre-commit runs Prettier (re-stages), ESLint, the full typecheck and `jest --findRelatedTests` on staged files; pre-push runs the full Jest suite.
 - Don't bump pinned versions without reading README's "Known environment gotchas": Gradle wrapper is pinned to 8.13, `react-native-screens` to 4.25.2, and `.npmrc` sets `legacy-peer-deps` because of `react-native-tvos`'s `0.83.0-0` version scheme.

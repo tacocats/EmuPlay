@@ -1,0 +1,13 @@
+# Toolchain for this repo: `mise install`, then mise puts these on PATH (and
+# sets JAVA_HOME) whenever you're in the project. Versions match CI
+# (.github/workflows/*.yml).
+[tools]
+node = "22.13"
+# Gradle needs JDK 17; JDK 21 breaks the Android build.
+java = "temurin-17"
+
+[env]
+# Android Studio's default SDK location on Linux; an ANDROID_HOME already in
+# your environment wins. Machine-specific overrides (e.g. RCT_METRO_PORT) go in
+# the git-ignored mise.local.toml.
+ANDROID_HOME = "{{ get_env(name='ANDROID_HOME', default=env.HOME ~ '/Android/Sdk') }}"
