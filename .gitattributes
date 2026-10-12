@@ -1,0 +1,11 @@
+# Normalize line endings in the repo to LF, whatever the contributor's OS or
+# core.autocrlf setting. Matches end_of_line in .editorconfig.
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.png binary
+*.jpg binary
+*.jar binary
+*.keystore binary
