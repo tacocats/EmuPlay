@@ -15,4 +15,4 @@ export interface Spec extends TurboModule {
   setInterceptedKeys(keys: Array<string>): void;
 }
 
-export default TurboModuleRegistry.get<Spec>('RommStreamKeyEvents');
+export default TurboModuleRegistry.get<Spec>('EmuPlayKeyEvents');

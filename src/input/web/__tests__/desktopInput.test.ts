@@ -1,4 +1,4 @@
-import type { RommStreamDesktopApi } from '../../../desktop/bridge';
+import type { EmuPlayDesktopApi } from '../../../desktop/bridge';
 import { interceptHardwareKeys } from '../../hardwareKeys';
 import { installDesktopInput } from '../desktopInput';
 
@@ -46,7 +46,7 @@ beforeEach(() => {
 
 afterEach(() => {
   uninstall();
-  delete (globalThis as { rommstream?: unknown }).rommstream;
+  delete (globalThis as { emuplay?: unknown }).emuplay;
 });
 
 describe('installDesktopInput', () => {
@@ -119,8 +119,8 @@ describe('keys taken off the game webview', () => {
         deliver = listener;
         return () => {};
       }),
-    } as unknown as RommStreamDesktopApi;
-    (globalThis as { rommstream?: unknown }).rommstream = bridge;
+    } as unknown as EmuPlayDesktopApi;
+    (globalThis as { emuplay?: unknown }).emuplay = bridge;
     uninstall = installDesktopInput({ goBack });
 
     const handler = jest.fn();

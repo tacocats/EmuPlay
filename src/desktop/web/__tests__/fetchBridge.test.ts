@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 // Node, not jsdom: it has the real fetch Response/Headers classes.
-import type { RommStreamDesktopApi } from '../../bridge';
+import type { EmuPlayDesktopApi } from '../../bridge';
 import { createBridgedFetch } from '../../fetchBridge';
 
 const APP_ORIGIN = 'http://localhost:5173';
@@ -26,7 +26,7 @@ function setUp() {
       headers: [['content-type', 'application/json']],
       body: new TextEncoder().encode('[{"id":1}]'),
     })),
-  } as unknown as RommStreamDesktopApi;
+  } as unknown as EmuPlayDesktopApi;
   const browserFetch = jest.fn(async () => new Response('local'));
   return {
     bridge,

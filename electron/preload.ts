@@ -3,15 +3,15 @@ import {
   DesktopPreferences,
   IPC,
   InterceptedKey,
-  RommStreamDesktopApi,
+  EmuPlayDesktopApi,
 } from './api';
 
 /**
- * Exposes `window.rommstream` to the app (see src/desktop/bridge.ts). The
+ * Exposes `window.emuplay` to the app (see src/desktop/bridge.ts). The
  * renderer is sandboxed with context isolation, so this is its only way to
  * the main process.
  */
-const api: RommStreamDesktopApi = {
+const api: EmuPlayDesktopApi = {
   platform: process.platform,
   fetch: request => ipcRenderer.invoke(IPC.fetch, request),
   secureStore: {
@@ -35,4 +35,4 @@ const api: RommStreamDesktopApi = {
   quit: () => ipcRenderer.send(IPC.quit),
 };
 
-contextBridge.exposeInMainWorld('rommstream', api);
+contextBridge.exposeInMainWorld('emuplay', api);

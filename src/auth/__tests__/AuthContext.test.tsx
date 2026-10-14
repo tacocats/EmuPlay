@@ -135,7 +135,7 @@ describe('AuthProvider', () => {
       expect(initUrl).toBe('https://romm.test/api/auth/device/init');
       const body = JSON.parse(String(init?.body));
       expect(body).toMatchObject({
-        client: 'RommStream',
+        client: 'EmuPlay',
         requested_scopes: [
           'me.read',
           'platforms.read',
@@ -144,9 +144,7 @@ describe('AuthProvider', () => {
           'roms.user.write',
         ],
       });
-      expect(body.client_device_identifier).toMatch(
-        /^rommstream-[0-9a-f]{32}$/,
-      );
+      expect(body.client_device_identifier).toMatch(/^emuplay-[0-9a-f]{32}$/);
       expect(onPrompt).toHaveBeenCalledWith({
         userCode: 'ABCD2345',
         verificationUrl: 'https://romm.test/pair/device?user_code=ABCD2345',
@@ -201,7 +199,7 @@ describe('AuthProvider', () => {
       );
 
       expect(result.current.status).toBe('signedIn');
-      expect(result.current.username).toMatch(/^RommStream/);
+      expect(result.current.username).toMatch(/^EmuPlay/);
     });
 
     it('persists nothing when the pairing is denied', async () => {

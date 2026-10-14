@@ -4,14 +4,14 @@ import os from 'node:os';
 import path from 'node:path';
 
 /**
- * Start RommStream when the user logs in. macOS and Windows have an API for
+ * Start EmuPlay when the user logs in. macOS and Windows have an API for
  * it; on Linux it's an XDG autostart entry.
  */
 
 function linuxAutostartFile(): string {
   const configHome =
     process.env.XDG_CONFIG_HOME || path.join(os.homedir(), '.config');
-  return path.join(configHome, 'autostart', 'rommstream.desktop');
+  return path.join(configHome, 'autostart', 'emuplay.desktop');
 }
 
 function linuxExecutable(): string {
@@ -35,7 +35,7 @@ export function setLaunchAtLogin(enabled: boolean): void {
     [
       '[Desktop Entry]',
       'Type=Application',
-      'Name=RommStream',
+      'Name=EmuPlay',
       `Exec="${linuxExecutable()}"`,
       'X-GNOME-Autostart-enabled=true',
       '',

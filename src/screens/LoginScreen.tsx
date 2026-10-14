@@ -207,7 +207,7 @@ export function LoginScreen() {
                 RomM.
               </Instruction>
               <Instruction index={2}>
-                Approve RommStream. Keep{' '}
+                Approve EmuPlay. Keep{' '}
                 <Text style={styles.scope}>roms.user.write</Text> selected,
                 since streaming needs it.
               </Instruction>

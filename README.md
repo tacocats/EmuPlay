@@ -1,33 +1,32 @@
 <div align="center">
 
-<img src="docs/logo.svg" alt="RommStream" width="480" />
+<img src="docs/logo.svg" alt="EmuPlay" width="480" />
 
 ### Stream your games like you would Movies!
 
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tacocats_RommStream&metric=alert_status)](https://sonarcloud.io/project/overview?id=tacocats_RommStream)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=tacocats_RommStream&metric=coverage)](https://sonarcloud.io/project/overview?id=tacocats_RommStream)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tacocats_EmuPlay&metric=alert_status)](https://sonarcloud.io/project/overview?id=tacocats_EmuPlay)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=tacocats_EmuPlay&metric=coverage)](https://sonarcloud.io/project/overview?id=tacocats_EmuPlay)
 
-[![Android TV Build](https://img.shields.io/github/actions/workflow/status/tacocats/RomMStream/android-build.yml?branch=master&label=Android%20TV&logo=android)](https://github.com/tacocats/RomMStream/actions/workflows/android-build.yml)
+[![Android TV Build](https://img.shields.io/github/actions/workflow/status/tacocats/EmuPlay/android-build.yml?branch=master&label=Android%20TV&logo=android)](https://github.com/tacocats/EmuPlay/actions/workflows/android-build.yml)
 [![Apple TV Build](https://img.shields.io/badge/Apple%20TV-unavailable-lightgrey?logo=apple)](#)
-[![Windows Build](https://img.shields.io/github/actions/workflow/status/tacocats/RomMStream/desktop-build.yml?branch=master&label=Windows&logo=windows)](https://github.com/tacocats/RomMStream/actions/workflows/desktop-build.yml)
-[![Linux Build](https://img.shields.io/github/actions/workflow/status/tacocats/RomMStream/desktop-build.yml?branch=master&label=Linux&logo=linux)](https://github.com/tacocats/RomMStream/actions/workflows/desktop-build.yml)
-[![macOS Build](https://img.shields.io/github/actions/workflow/status/tacocats/RomMStream/desktop-build.yml?branch=master&label=macOS&logo=apple)](https://github.com/tacocats/RomMStream/actions/workflows/desktop-build.yml)
+[![Windows Build](https://img.shields.io/github/actions/workflow/status/tacocats/EmuPlay/desktop-build.yml?branch=master&label=Windows&logo=windows)](https://github.com/tacocats/EmuPlay/actions/workflows/desktop-build.yml)
+[![Linux Build](https://img.shields.io/github/actions/workflow/status/tacocats/EmuPlay/desktop-build.yml?branch=master&label=Linux&logo=linux)](https://github.com/tacocats/EmuPlay/actions/workflows/desktop-build.yml)
+[![macOS Build](https://img.shields.io/github/actions/workflow/status/tacocats/EmuPlay/desktop-build.yml?branch=master&label=macOS&logo=apple)](https://github.com/tacocats/EmuPlay/actions/workflows/desktop-build.yml)
 
 ---
 
 </div>
 
-RommStream is a React Native application that connects to a
+EmuPlay is a React Native application that connects to a
 [Romm](https://github.com/rommapp/romm) server, lets you browse your library
 by platform, and launches games in a WebView running Romm's web player.
 
 > [!NOTE]
-> RommStream is not officially related to RomM in any way. It is a
-> third-party app, and "RommStream" is a placeholder name that may change in
-> the future out of respect for the RomM project.
+> EmuPlay is not officially related to RomM in any way. It is a
+> third-party app.
 
 ## Table of Contents
 
@@ -66,11 +65,11 @@ by platform, and launches games in a WebView running Romm's web player.
 
 ### Server requirements
 
-RommStream plays games through RomM's
+EmuPlay plays games through RomM's
 [emulator streaming](https://docs.romm.app/5.3.0/using/emulator-streaming/):
 the game runs in a real emulator on your server and is streamed to the app
 over WebRTC. Your RomM server (5.3.0 or newer) therefore needs streaming
-set up before RommStream can launch anything:
+set up before EmuPlay can launch anything:
 
 - **[RomM Broker](https://github.com/romm-streaming/romm-broker)**, which
   takes launch, save and state commands from RomM, running inside
@@ -115,21 +114,21 @@ Things to know:
 
 Download the Android TV APK, the Windows installer or portable `.exe`, the
 macOS `.dmg` / `.zip`, or the Linux AppImage / `.deb` / `.rpm` from the
-[Releases](https://github.com/tacocats/RomMStream/releases) page. The
+[Releases](https://github.com/tacocats/EmuPlay/releases) page. The
 **Prerelease** entry there is a rolling build of recent changes; it is
 replaced every time a new one is made. The desktop builds are unsigned; see
 [Desktop builds](#desktop-builds) for getting past the first-run warnings.
 
 ### Signing in
 
-RommStream signs in by pairing with your RomM server (RomM 5.3.1 or later),
+EmuPlay signs in by pairing with your RomM server (RomM 5.3.1 or later),
 so there's no username or password to type with a remote:
 
 1. Open the app, enter your RomM server's address and choose
    **Get pairing code**.
 2. The app shows a code, a link and a QR code. Scan the QR code with your
    phone, or open the link on any device signed in to RomM.
-3. Approve RommStream on RomM's page. Keep the `roms.user.write` permission
+3. Approve EmuPlay on RomM's page. Keep the `roms.user.write` permission
    selected, which starting streams needs.
 
 The app signs in by itself once you approve, with a
@@ -210,13 +209,13 @@ Electron shell (`electron/`). Platform differences live in `.web.ts(x)`
 siblings that Vite picks over the native file, so the TV builds don't see
 them:
 
-| Native (TV)                           | Desktop                                                                                                                                                |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| react-native-tvos focus engine        | `src/input/web/spatialNavigation.ts` (D-pad focus), with `hasTVPreferredFocus` / `TVFocusGuideView` given web meanings in `web/shims/react-native.tsx` |
-| Remote keys via `RommStreamKeyEvents` | `src/input/web/desktopInput.ts`: keyboard, gamepad (Gamepad API) and keys the main process takes off the game webview                                  |
-| Keychain (`react-native-keychain`)    | Electron `safeStorage` (`src/auth/secureStore.web.ts` → `electron/secureStore.ts`)                                                                     |
-| `react-native-webview`                | Electron `<webview>` (`src/screens/player/PlayerWebView.web.tsx`), with `window.ReactNativeWebView` recreated by `electron/guestPreload.ts`            |
-| `fetch` (no CORS)                     | Cross-origin `fetch` routed through the main process (`src/desktop/fetchBridge.ts` → `electron/rommFetch.ts`)                                          |
+| Native (TV)                        | Desktop                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| react-native-tvos focus engine     | `src/input/web/spatialNavigation.ts` (D-pad focus), with `hasTVPreferredFocus` / `TVFocusGuideView` given web meanings in `web/shims/react-native.tsx` |
+| Remote keys via `EmuPlayKeyEvents` | `src/input/web/desktopInput.ts`: keyboard, gamepad (Gamepad API) and keys the main process takes off the game webview                                  |
+| Keychain (`react-native-keychain`) | Electron `safeStorage` (`src/auth/secureStore.web.ts` → `electron/secureStore.ts`)                                                                     |
+| `react-native-webview`             | Electron `<webview>` (`src/screens/player/PlayerWebView.web.tsx`), with `window.ReactNativeWebView` recreated by `electron/guestPreload.ts`            |
+| `fetch` (no CORS)                  | Cross-origin `fetch` routed through the main process (`src/desktop/fetchBridge.ts` → `electron/rommFetch.ts`)                                          |
 
 ```sh
 npm run dev:desktop     # Vite dev server (hot reload) + Electron
@@ -233,7 +232,7 @@ AppImage, `.deb` and `.rpm` (x64 and arm64, e.g. a Raspberry Pi 4/5 on a
 packages are cross-built on the x64 runner.
 They are **unsigned** for now: Windows SmartScreen warns on first run ("More
 info" → "Run anyway"), and on macOS right-click the app → Open the first
-time (or `xattr -dr com.apple.quarantine /Applications/RommStream.app`).
+time (or `xattr -dr com.apple.quarantine /Applications/EmuPlay.app`).
 
 Using it from the couch:
 
@@ -247,10 +246,10 @@ Using it from the couch:
   pause menu.
 - Self-signed HTTPS RomM: Settings → Desktop → "Trust this server's
   certificate". For the very first sign-in, start the app with
-  `ROMMSTREAM_TRUSTED_HOSTS=romm.home.local` (comma-separated, `host:port`
+  `EMUPLAY_TRUSTED_HOSTS=romm.home.local` (comma-separated, `host:port`
   allowed) instead.
 - Linux: hardware video decoding (helps the streamed player) is opt-in with
-  `ROMMSTREAM_ENABLE_VAAPI=1`. With no keyring running (Secret Service or
+  `EMUPLAY_ENABLE_VAAPI=1`. With no keyring running (Secret Service or
   KWallet), the saved sign-in is stored with a fixed key rather than
   encrypted.
 
@@ -292,7 +291,7 @@ commit that built it. The desktop packages aren't code-signed yet, so this is ho
 download is genuine:
 
 ```sh
-gh attestation verify RommStream-0.1.0-androidtv.apk -R tacocats/RomMStream
+gh attestation verify EmuPlay-0.1.0-androidtv.apk -R tacocats/EmuPlay
 ```
 
 Only the `publish` job can write to the repo (create the release, store the
@@ -301,18 +300,18 @@ attestation); every other job runs with read-only `contents`.
 The APK is signed with the release key from these repo secrets, and the
 workflow fails without them rather than shipping a debug-signed APK:
 
-| Secret                      | Value                                    |
-| --------------------------- | ---------------------------------------- |
-| `ANDROID_KEYSTORE_BASE64`   | `base64 -w0 rommstream-release.keystore` |
-| `ANDROID_KEYSTORE_PASSWORD` | keystore password                        |
-| `ANDROID_KEY_ALIAS`         | key alias                                |
-| `ANDROID_KEY_PASSWORD`      | key password                             |
+| Secret                      | Value                                 |
+| --------------------------- | ------------------------------------- |
+| `ANDROID_KEYSTORE_BASE64`   | `base64 -w0 emuplay-release.keystore` |
+| `ANDROID_KEYSTORE_PASSWORD` | keystore password                     |
+| `ANDROID_KEY_ALIAS`         | key alias                             |
+| `ANDROID_KEY_PASSWORD`      | key password                          |
 
 Create the keystore once with
-`keytool -genkeypair -v -keystore rommstream-release.keystore -alias rommstream -keyalg RSA -keysize 2048 -validity 10000`
+`keytool -genkeypair -v -keystore emuplay-release.keystore -alias emuplay -keyalg RSA -keysize 2048 -validity 10000`
 and back it up outside the repo: Android only installs updates signed with
 the same key. Locally, `assembleRelease` uses the debug key unless
-`ROMMSTREAM_KEYSTORE` (and the matching `ROMMSTREAM_*` password/alias
+`EMUPLAY_KEYSTORE` (and the matching `EMUPLAY_*` password/alias
 variables) are set.
 
 ### Testing
@@ -395,7 +394,7 @@ a restart.
 ```sh
 npm run build:desktop
 npm run e2e:desktop               # on a headless Linux box: xvfb-run -a npm run e2e:desktop
-ROMMSTREAM_E2E_EXECUTABLE=release/linux-unpacked/rommstream npm run e2e:desktop
+EMUPLAY_E2E_EXECUTABLE=release/linux-unpacked/emuplay npm run e2e:desktop
                                   # the same against a packaged app
 ```
 
@@ -452,4 +451,4 @@ Many self-hosted RomM instances run over plain HTTP on a LAN.
 
 ## License
 
-[MIT](LICENSE) © 2026 RommStream contributors.
+[MIT](LICENSE) © 2026 EmuPlay contributors.

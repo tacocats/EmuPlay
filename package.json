@@ -1,5 +1,5 @@
 {
-  "name": "com.rommstream",
+  "name": "com.emuplay",
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
@@ -79,7 +79,7 @@
     "node": ">=22.13"
   },
   "codegenConfig": {
-    "name": "RommStreamAppSpec",
+    "name": "EmuPlayAppSpec",
     "type": "modules",
     "jsSrcsDir": "src/native"
   }

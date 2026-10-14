@@ -1,5 +1,5 @@
-<svg width="560" height="130" viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RommStream">
-  <title>RommStream</title>
+<svg width="560" height="130" viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EmuPlay">
+  <title>EmuPlay</title>
   <defs>
     <linearGradient id="rms-bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#4338CA" />
@@ -24,6 +24,6 @@
     font-weight="800"
     letter-spacing="-1"
   >
-    <tspan fill="#FFFFFF">Romm</tspan><tspan fill="#FDE68A">Stream</tspan>
+    <tspan fill="#FFFFFF">Emu</tspan><tspan fill="#FDE68A">Play</tspan>
   </text>
 </svg>

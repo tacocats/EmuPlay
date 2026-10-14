@@ -44,7 +44,7 @@ describe('EmulatorPlayerScreen', () => {
     const { navigation } = await renderPlayer();
 
     await act(async () => {
-      DeviceEventEmitter.emit('rommstream.hardwareKey', {
+      DeviceEventEmitter.emit('emuplay.hardwareKey', {
         key: 'back',
         keyCode: 4,
       });

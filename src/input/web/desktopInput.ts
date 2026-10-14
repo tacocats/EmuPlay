@@ -47,7 +47,7 @@ const PAD_KEYS: Partial<Record<GamepadButton, HardwareKey>> = {
   thumbR: 'buttonThumbR',
 };
 
-const CURSOR_HIDDEN_CLASS = 'rommstream-cursor-hidden';
+const CURSOR_HIDDEN_CLASS = 'emuplay-cursor-hidden';
 const CURSOR_IDLE_MS = 3000;
 
 function isDirection(key: string): key is Direction {

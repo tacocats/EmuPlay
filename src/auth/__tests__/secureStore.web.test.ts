@@ -13,14 +13,14 @@ const CREDS = {
 };
 
 afterEach(() => {
-  delete (globalThis as { rommstream?: unknown }).rommstream;
+  delete (globalThis as { emuplay?: unknown }).emuplay;
   localStorage.clear();
 });
 
 describe('secureStore (web)', () => {
   it('keeps values in the Electron secure store when there is one', async () => {
     const entries = new Map<string, string>();
-    (globalThis as { rommstream?: unknown }).rommstream = {
+    (globalThis as { emuplay?: unknown }).emuplay = {
       secureStore: {
         get: async (key: string) => entries.get(key) ?? null,
         set: async (key: string, value: string) => {
@@ -52,7 +52,7 @@ describe('secureStore (web)', () => {
   });
 
   it('ignores a corrupt entry', async () => {
-    localStorage.setItem('com.rommstream.tokens', '{nope');
+    localStorage.setItem('com.emuplay.tokens', '{nope');
     expect(await loadTokens()).toBeNull();
   });
 });

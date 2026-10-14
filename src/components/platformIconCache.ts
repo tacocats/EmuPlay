@@ -11,7 +11,7 @@ export type ResolvedIcon =
 type IconCandidate = { url: string; kind: 'svg' | 'ico' };
 
 // Bump to discard persisted entries whose shape or resolution rules changed.
-const STORAGE_PREFIX = 'rommstream.platformIcon.v1:';
+const STORAGE_PREFIX = 'emuplay.platformIcon.v1:';
 
 // One in-flight-or-settled promise per platform for the life of the app, so
 // every tile that mounts (tab switches, list re-renders) shares a single

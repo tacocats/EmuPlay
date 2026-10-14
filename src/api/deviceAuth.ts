@@ -50,7 +50,7 @@ export async function startDeviceAuthorization(
     body: JSON.stringify({
       client_device_identifier: device.clientDeviceIdentifier,
       name: device.name,
-      client: 'RommStream',
+      client: 'EmuPlay',
       platform: device.platform,
       requested_scopes: REQUESTED_SCOPES.split(' '),
     }),

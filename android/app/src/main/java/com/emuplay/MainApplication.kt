@@ -1,4 +1,4 @@
-package com.rommstream
+package com.emuplay
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -6,7 +6,7 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
-import com.rommstream.keyevents.KeyEventsPackage
+import com.emuplay.keyevents.KeyEventsPackage
 
 class MainApplication : Application(), ReactApplication {
 

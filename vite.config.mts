@@ -41,7 +41,7 @@ const CONTENT_SECURITY_POLICY = [
 ].join('; ');
 
 const contentSecurityPolicy: Plugin = {
-  name: 'rommstream-csp',
+  name: 'emuplay-csp',
   apply: 'build',
   transformIndexHtml: () => [
     {

@@ -31,15 +31,15 @@ writeFileSync(
   'dist/package.json',
   JSON.stringify(
     {
-      name: 'rommstream',
-      productName: 'RommStream',
+      name: 'emuplay',
+      productName: 'EmuPlay',
       version: root.version,
       description: 'Couch-friendly client for a RomM game library',
-      author: 'RommStream',
+      author: 'EmuPlay',
       license: root.license,
       main: 'electron/main.js',
       // Linux: ties the running window to the installed .desktop entry.
-      desktopName: 'rommstream.desktop',
+      desktopName: 'emuplay.desktop',
     },
     null,
     2,

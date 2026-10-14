@@ -128,17 +128,17 @@ jobs:
       - name: Build release APK
         working-directory: android
         env:
-          ROMMSTREAM_KEYSTORE: ${{ runner.temp }}/release.keystore
-          ROMMSTREAM_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ROMMSTREAM_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ROMMSTREAM_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          EMUPLAY_KEYSTORE: ${{ runner.temp }}/release.keystore
+          EMUPLAY_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          EMUPLAY_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          EMUPLAY_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         run: >
           ./gradlew assembleRelease --no-daemon
           -PversionName="$VERSION"
           -PversionCode=${{ needs.prepare.outputs.version_code }}
       - run: |
           mkdir out
-          cp android/app/build/outputs/apk/release/app-release.apk "out/RommStream-$VERSION-androidtv.apk"
+          cp android/app/build/outputs/apk/release/app-release.apk "out/EmuPlay-$VERSION-androidtv.apk"
       - uses: actions/upload-artifact@v4
         with:
           name: release-android

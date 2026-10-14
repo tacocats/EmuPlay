@@ -1,6 +1,6 @@
 import type {
   DesktopFetchRequest,
-  RommStreamDesktopApi,
+  EmuPlayDesktopApi,
 } from '../../electron/api';
 
 /**
@@ -60,7 +60,7 @@ function toRequest(
 }
 
 export function createBridgedFetch(
-  bridge: RommStreamDesktopApi,
+  bridge: EmuPlayDesktopApi,
   browserFetch: typeof fetch,
 ): typeof fetch {
   return async (input, init) => {
@@ -93,7 +93,7 @@ export function createBridgedFetch(
 }
 
 /** Route cross-origin fetch() calls through the main process. */
-export function installFetchBridge(bridge: RommStreamDesktopApi): void {
+export function installFetchBridge(bridge: EmuPlayDesktopApi): void {
   globalThis.fetch = createBridgedFetch(
     bridge,
     globalThis.fetch.bind(globalThis),

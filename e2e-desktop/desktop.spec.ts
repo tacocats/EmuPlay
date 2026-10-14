@@ -19,10 +19,10 @@ import { MockRomm, ROM, startMockRomm } from './mockRommServer';
 const APP_DIR = path.join(__dirname, '..', 'dist');
 
 /**
- * Set to a packaged app's executable (e.g. release/linux-unpacked/rommstream)
+ * Set to a packaged app's executable (e.g. release/linux-unpacked/emuplay)
  * to test that instead of dist/ run with the development Electron.
  */
-const PACKAGED_EXECUTABLE = process.env.ROMMSTREAM_E2E_EXECUTABLE;
+const PACKAGED_EXECUTABLE = process.env.EMUPLAY_E2E_EXECUTABLE;
 
 let romm: MockRomm;
 let app: ElectronApplication;
@@ -30,7 +30,7 @@ let page: Page;
 let userData: string;
 
 async function launch(): Promise<void> {
-  const env: Record<string, string> = { ROMMSTREAM_USER_DATA_DIR: userData };
+  const env: Record<string, string> = { EMUPLAY_USER_DATA_DIR: userData };
   for (const [name, value] of Object.entries(process.env)) {
     // Set by VS Code's terminal; would start Electron as plain Node.
     if (value !== undefined && name !== 'ELECTRON_RUN_AS_NODE') {
@@ -96,7 +96,7 @@ test.describe.configure({ mode: 'serial' });
 
 test.beforeAll(async () => {
   romm = await startMockRomm();
-  userData = fs.mkdtempSync(path.join(os.tmpdir(), 'rommstream-e2e-'));
+  userData = fs.mkdtempSync(path.join(os.tmpdir(), 'emuplay-e2e-'));
 });
 
 test.afterAll(async () => {
@@ -122,9 +122,9 @@ test('pairs, browses and plays with the keyboard alone', async () => {
   await expect(byTestId('pairing-qr')).toBeVisible();
   await expect.poll(focusedTestId).toBe('pairing-cancel');
   expect(romm.pairingRequest).toMatchObject({
-    client: 'RommStream',
+    client: 'EmuPlay',
     platform: 'desktop',
-    name: 'RommStream (Desktop)',
+    name: 'EmuPlay (Desktop)',
   });
   await expect
     .poll(() => romm.requests)

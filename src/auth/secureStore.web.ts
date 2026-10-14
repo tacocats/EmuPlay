@@ -14,8 +14,8 @@ import { createLogger } from '../utils/logger';
 
 const log = createLogger('secureStore');
 
-const CREDENTIALS_SERVICE = 'com.rommstream.credentials';
-const TOKENS_SERVICE = 'com.rommstream.tokens';
+const CREDENTIALS_SERVICE = 'com.emuplay.credentials';
+const TOKENS_SERVICE = 'com.emuplay.tokens';
 
 export interface StoredCredentials {
   serverUrl: string;

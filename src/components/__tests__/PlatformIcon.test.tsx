@@ -19,7 +19,7 @@ const ICO = String.fromCharCode(0, 0, 1, 0) + 'binary';
 const HTML = '<!doctype html><html><body>RomM</body></html>';
 
 const BASE = 'https://romm.test/assets/platforms';
-const KEY_PREFIX = 'rommstream.platformIcon.v1:https://romm.test|';
+const KEY_PREFIX = 'emuplay.platformIcon.v1:https://romm.test|';
 
 beforeEach(() => {
   resetPlatformIconCache();

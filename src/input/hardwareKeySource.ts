@@ -9,7 +9,7 @@ import type { HardwareKey, HardwareKeyEvent } from './hardwareKeys';
  */
 
 /** Must match `KeyEventBridge.EVENT_NAME` on the Android side. */
-const KEY_EVENT = 'rommstream.hardwareKey';
+const KEY_EVENT = 'emuplay.hardwareKey';
 
 export function setInterceptedKeys(keys: HardwareKey[]): void {
   NativeKeyEvents?.setInterceptedKeys(keys);
