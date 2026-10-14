@@ -84,3 +84,6 @@ start.sh
 /dist
 /release
 .vscode/settings.json
+
+# mise: machine-specific overrides
+mise.local.toml
