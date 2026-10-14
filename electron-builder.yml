@@ -2,9 +2,9 @@
 # "Desktop builds". The app directory is dist/ (web bundle + Electron main,
 # with its own package.json written by scripts/build-electron.mjs), so no
 # node_modules are shipped.
-appId: com.rommstream.desktop
-productName: RommStream
-copyright: Copyright © RommStream contributors
+appId: com.emuplay.desktop
+productName: EmuPlay
+copyright: Copyright © EmuPlay contributors
 directories:
   app: dist
   output: release
@@ -54,9 +54,9 @@ linux:
       arch: [x64, arm64]
   category: Game
   icon: electron/resources/icon.png
-  maintainer: RommStream contributors <noreply@rommstream.invalid>
+  maintainer: EmuPlay contributors <noreply@emuplay.invalid>
   synopsis: Couch-friendly client for a RomM game library
   desktop:
     entry:
-      Name: RommStream
-      StartupWMClass: RommStream
+      Name: EmuPlay
+      StartupWMClass: EmuPlay

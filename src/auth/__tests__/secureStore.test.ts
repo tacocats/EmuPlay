@@ -7,8 +7,8 @@ import {
   saveTokens,
 } from '../secureStore';
 
-const CREDENTIALS_SERVICE = 'com.rommstream.credentials';
-const TOKENS_SERVICE = 'com.rommstream.tokens';
+const CREDENTIALS_SERVICE = 'com.emuplay.credentials';
+const TOKENS_SERVICE = 'com.emuplay.tokens';
 
 const creds = {
   serverUrl: 'https://romm.test',

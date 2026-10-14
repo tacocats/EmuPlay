@@ -116,7 +116,7 @@ describe('GameStreamPlayerScreen', () => {
     const { navigation } = await renderPlayer();
 
     await act(async () => {
-      DeviceEventEmitter.emit('rommstream.hardwareKey', {
+      DeviceEventEmitter.emit('emuplay.hardwareKey', {
         key: 'back',
         keyCode: 4,
       });
@@ -131,7 +131,7 @@ describe('GameStreamPlayerScreen', () => {
     const player = screen.getByTestId('player-webview');
 
     await act(async () => {
-      DeviceEventEmitter.emit('rommstream.hardwareKey', {
+      DeviceEventEmitter.emit('emuplay.hardwareKey', {
         key: 'back',
         keyCode: 4,
       });
@@ -209,7 +209,7 @@ describe('GameStreamPlayerScreen', () => {
 
     // Reopen the menu (the previous selection closed it) to see the flipped label.
     await act(async () => {
-      DeviceEventEmitter.emit('rommstream.hardwareKey', {
+      DeviceEventEmitter.emit('emuplay.hardwareKey', {
         key: 'back',
         keyCode: 4,
       });

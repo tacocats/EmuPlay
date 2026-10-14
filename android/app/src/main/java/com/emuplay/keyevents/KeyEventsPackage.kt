@@ -1,4 +1,4 @@
-package com.rommstream.keyevents
+package com.emuplay.keyevents
 
 import com.facebook.fbreact.specs.NativeKeyEventsSpec
 import com.facebook.react.BaseReactPackage

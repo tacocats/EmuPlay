@@ -11,7 +11,7 @@ describe('Login screen', () => {
   });
 
   it('shows the pairing form', async () => {
-    await expect(element(by.text('RommStream'))).toBeVisible();
+    await expect(element(by.text('EmuPlay'))).toBeVisible();
     await expect(element(by.id('login-server-url'))).toBeVisible();
     await expect(element(by.id('login-submit'))).toBeVisible();
   });

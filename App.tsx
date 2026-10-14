@@ -1,5 +1,5 @@
 /**
- * RommStream
+ * EmuPlay
  * TV client for a RomM server: sign in, browse platforms/roms, and launch
  * the RomM web player in a WebView.
  *

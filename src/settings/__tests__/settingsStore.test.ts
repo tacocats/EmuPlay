@@ -16,7 +16,7 @@ describe('persisted settings', () => {
     await setInBrowserPlayEnabled(true);
 
     expect(AsyncStorage.setItem).toHaveBeenCalledWith(
-      'rommstream.inBrowserPlayEnabled.v2',
+      'emuplay.inBrowserPlayEnabled.v2',
       'true',
     );
     await expect(getInBrowserPlayEnabled()).resolves.toBe(true);
@@ -28,13 +28,13 @@ describe('persisted settings', () => {
   it('makes up a device identifier once and keeps it', async () => {
     const first = await getDeviceIdentifier();
 
-    expect(first).toMatch(/^rommstream-[0-9a-f]{32}$/);
+    expect(first).toMatch(/^emuplay-[0-9a-f]{32}$/);
     await expect(getDeviceIdentifier()).resolves.toBe(first);
     expect(AsyncStorage.setItem).toHaveBeenCalledTimes(1);
   });
 
   it('ignores in-browser play saved on before it defaulted off', async () => {
-    await AsyncStorage.setItem('rommstream.inBrowserPlayEnabled.v1', 'true');
+    await AsyncStorage.setItem('emuplay.inBrowserPlayEnabled.v1', 'true');
 
     await expect(getInBrowserPlayEnabled()).resolves.toBe(false);
   });

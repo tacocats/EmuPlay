@@ -2,10 +2,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Keys are versioned: bumping one discards a saved value whose meaning or
 // correct default changed, so it can't override a fix.
-const IN_BROWSER_PLAY_ENABLED_KEY = 'rommstream.inBrowserPlayEnabled.v2';
-const DEVICE_IDENTIFIER_KEY = 'rommstream.deviceIdentifier.v1';
+const IN_BROWSER_PLAY_ENABLED_KEY = 'emuplay.inBrowserPlayEnabled.v2';
+const DEVICE_IDENTIFIER_KEY = 'emuplay.deviceIdentifier.v1';
 
-// Off: RommStream only launches games through server streaming. The
+// Off: EmuPlay only launches games through server streaming. The
 // in-browser players (EmulatorJS, js-dos, PICO-8, Ruffle...) are kept behind
 // this flag, with no Settings toggle, in case they come back.
 export const DEFAULT_IN_BROWSER_PLAY_ENABLED = false;
@@ -39,7 +39,7 @@ export async function getDeviceIdentifier(): Promise<string> {
   if (stored) {
     return stored;
   }
-  const created = `rommstream-${randomHex(16)}`;
+  const created = `emuplay-${randomHex(16)}`;
   await AsyncStorage.setItem(DEVICE_IDENTIFIER_KEY, created);
   return created;
 }

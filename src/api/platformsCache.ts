@@ -5,7 +5,7 @@ import { RommPlatform } from './types';
 const log = createLogger('platformsCache');
 
 // Bump to discard persisted lists whose shape changed.
-const STORAGE_PREFIX = 'rommstream.platforms.v1:';
+const STORAGE_PREFIX = 'emuplay.platforms.v1:';
 
 // RomM's /api/platforms can take several seconds, so the last list is kept
 // and shown immediately while a fresh one loads in the background.

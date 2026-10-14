@@ -20,7 +20,7 @@ function pageMessage(payload: unknown) {
 /** What the native key interceptor sends when the remote's Back is pressed. */
 async function pressBack() {
   await act(async () => {
-    DeviceEventEmitter.emit('rommstream.hardwareKey', {
+    DeviceEventEmitter.emit('emuplay.hardwareKey', {
       key: 'back',
       keyCode: 4,
     });

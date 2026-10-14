@@ -30,13 +30,13 @@ import { secureDelete, secureGet, secureSet } from './secureStore';
  */
 
 /** Set by `npm run dev:desktop` to load the Vite dev server. */
-const DEV_SERVER_URL = process.env.ROMMSTREAM_DEV_SERVER_URL;
+const DEV_SERVER_URL = process.env.EMUPLAY_DEV_SERVER_URL;
 
 // userData (credentials, preferences, the player's cookies) under a readable
 // name rather than the package name. Tests point it somewhere disposable.
-app.setName('RommStream');
-if (process.env.ROMMSTREAM_USER_DATA_DIR) {
-  app.setPath('userData', process.env.ROMMSTREAM_USER_DATA_DIR);
+app.setName('EmuPlay');
+if (process.env.EMUPLAY_USER_DATA_DIR) {
+  app.setPath('userData', process.env.EMUPLAY_USER_DATA_DIR);
 }
 
 // Games start their own audio without a click: autoplay has to be allowed.
@@ -44,10 +44,7 @@ app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
 // Hardware video decoding on Linux is off by default in Chromium, and
 // breaks on some drivers, so it's opt-in; the streamed player benefits most.
-if (
-  process.platform === 'linux' &&
-  process.env.ROMMSTREAM_ENABLE_VAAPI === '1'
-) {
+if (process.platform === 'linux' && process.env.EMUPLAY_ENABLE_VAAPI === '1') {
   app.commandLine.appendSwitch(
     'enable-features',
     'VaapiVideoDecoder,VaapiVideoDecodeLinuxGL',
@@ -254,7 +251,7 @@ function setUpAppContents(contents: WebContents): void {
 function createWindow(): void {
   const { fullscreen } = getPreferences();
   mainWindow = new BrowserWindow({
-    title: 'RommStream',
+    title: 'EmuPlay',
     width: 1280,
     height: 720,
     minWidth: 960,

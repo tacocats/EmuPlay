@@ -59,9 +59,7 @@ interface AuthContextValue extends AuthState {
 // How this device shows up on RomM's approval page and device list.
 const DEVICE_PLATFORM = Platform.OS === 'web' ? 'desktop' : Platform.OS;
 const DEVICE_NAME =
-  Platform.OS === 'android'
-    ? 'RommStream (Android TV)'
-    : 'RommStream (Desktop)';
+  Platform.OS === 'android' ? 'EmuPlay (Android TV)' : 'EmuPlay (Desktop)';
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 

@@ -1,11 +1,11 @@
-package com.rommstream.keyevents
+package com.emuplay.keyevents
 
 import android.view.KeyEvent
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReactContext
 
 /**
- * Shared state between [com.rommstream.MainActivity]'s key dispatch and the
+ * Shared state between [com.emuplay.MainActivity]'s key dispatch and the
  * KeyEvents native module.
  *
  * The activity is the only place in the app that sees a key press before
@@ -23,7 +23,7 @@ import com.facebook.react.bridge.ReactContext
 internal object KeyEventBridge {
 
   /** Event name JS listens for on RCTDeviceEventEmitter. */
-  const val EVENT_NAME: String = "rommstream.hardwareKey"
+  const val EVENT_NAME: String = "emuplay.hardwareKey"
 
   @Volatile private var interceptedKeyCodes: Set<Int> = emptySet()
   @Volatile private var reactContext: ReactContext? = null

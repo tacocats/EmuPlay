@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.rommstream"
+    namespace "com.emuplay"
     defaultConfig {
-        applicationId "com.rommstream"
+        applicationId "com.emuplay"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // Set by the release workflow from the tag: -PversionName=0.1.0
@@ -102,14 +102,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-        // The real release key, when ROMMSTREAM_KEYSTORE points at it (the
+        // The real release key, when EMUPLAY_KEYSTORE points at it (the
         // release workflow decodes it from repo secrets).
-        if (System.getenv("ROMMSTREAM_KEYSTORE")) {
+        if (System.getenv("EMUPLAY_KEYSTORE")) {
             release {
-                storeFile file(System.getenv("ROMMSTREAM_KEYSTORE"))
-                storePassword System.getenv("ROMMSTREAM_KEYSTORE_PASSWORD")
-                keyAlias System.getenv("ROMMSTREAM_KEY_ALIAS")
-                keyPassword System.getenv("ROMMSTREAM_KEY_PASSWORD")
+                storeFile file(System.getenv("EMUPLAY_KEYSTORE"))
+                storePassword System.getenv("EMUPLAY_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("EMUPLAY_KEY_ALIAS")
+                keyPassword System.getenv("EMUPLAY_KEY_PASSWORD")
             }
         }
     }
@@ -118,7 +118,7 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Debug key locally unless ROMMSTREAM_KEYSTORE is set (see above).
+            // Debug key locally unless EMUPLAY_KEYSTORE is set (see above).
             signingConfig signingConfigs.findByName("release") ?: signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"

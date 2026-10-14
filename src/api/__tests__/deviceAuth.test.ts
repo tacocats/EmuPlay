@@ -32,8 +32,8 @@ describe('startDeviceAuthorization', () => {
 
     await expect(
       startDeviceAuthorization(SERVER, {
-        clientDeviceIdentifier: 'rommstream-abc',
-        name: 'RommStream (Desktop)',
+        clientDeviceIdentifier: 'emuplay-abc',
+        name: 'EmuPlay (Desktop)',
         platform: 'desktop',
       }),
     ).resolves.toEqual(FLOW);
@@ -43,9 +43,9 @@ describe('startDeviceAuthorization', () => {
     expect(init?.method).toBe('POST');
     expect(init?.credentials).toBe('omit');
     expect(JSON.parse(String(init?.body))).toEqual({
-      client_device_identifier: 'rommstream-abc',
-      name: 'RommStream (Desktop)',
-      client: 'RommStream',
+      client_device_identifier: 'emuplay-abc',
+      name: 'EmuPlay (Desktop)',
+      client: 'EmuPlay',
       platform: 'desktop',
       requested_scopes: [
         'me.read',

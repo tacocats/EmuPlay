@@ -10,7 +10,7 @@ jest.mock('../../native/NativeKeyEvents', () => ({
 const setInterceptedKeys = jest.mocked(NativeKeyEvents!.setInterceptedKeys);
 
 function press(key: string, keyCode = 0) {
-  DeviceEventEmitter.emit('rommstream.hardwareKey', { key, keyCode });
+  DeviceEventEmitter.emit('emuplay.hardwareKey', { key, keyCode });
 }
 
 /** Key codes native sends alongside the name; irrelevant beyond being passed on. */

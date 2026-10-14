@@ -24,7 +24,7 @@ if (!built) {
   server = await createServer({ configFile: 'vite.config.mts' });
   await server.listen();
   server.printUrls();
-  env.ROMMSTREAM_DEV_SERVER_URL = server.resolvedUrls.local[0];
+  env.EMUPLAY_DEV_SERVER_URL = server.resolvedUrls.local[0];
   await import('./build-electron.mjs');
 }
 

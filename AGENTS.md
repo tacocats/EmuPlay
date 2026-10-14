@@ -2,7 +2,7 @@
 
 This file provides guidance to AI coding agents (Claude Code, Codex, etc.) when working with code in this repository.
 
-RommStream is a TV/desktop client for a [RomM](https://github.com/rommapp/romm) server: pair with the server, browse the library, and launch games, mainly through RomM's server-side emulator streaming (WebRTC) shown in a WebView. One React Native codebase ships to Android TV (and tvOS, unverified) via `react-native-tvos`, and to Windows/macOS/Linux via react-native-web + Vite inside Electron. README.md has the full developer docs (release process, signing, e2e setup, desktop usage); this file is the short version.
+EmuPlay is a TV/desktop client for a [RomM](https://github.com/rommapp/romm) server: pair with the server, browse the library, and launch games, mainly through RomM's server-side emulator streaming (WebRTC) shown in a WebView. One React Native codebase ships to Android TV (and tvOS, unverified) via `react-native-tvos`, and to Windows/macOS/Linux via react-native-web + Vite inside Electron. README.md has the full developer docs (release process, signing, e2e setup, desktop usage); this file is the short version.
 
 ## Commands
 
@@ -55,7 +55,7 @@ Both player screens wrap `WebPlayerScreen`, which owns the WebView, injected JS 
 
 ### Hardware keys
 
-`src/input/hardwareKeys.ts` (`useHardwareKeys`) lets screens intercept remote/controller keys. On Android the source is a TurboModule: the codegen spec is `src/native/NativeKeyEvents.ts` (`codegenConfig` in package.json), implemented in `android/app/src/main/java/com/rommstream/keyevents/`. `MainActivity` swallows the requested keys and re-emits them as `rommstream.hardwareKey` events. The event name must match `KeyEventBridge.EVENT_NAME`.
+`src/input/hardwareKeys.ts` (`useHardwareKeys`) lets screens intercept remote/controller keys. On Android the source is a TurboModule: the codegen spec is `src/native/NativeKeyEvents.ts` (`codegenConfig` in package.json), implemented in `android/app/src/main/java/com/emuplay/keyevents/`. `MainActivity` swallows the requested keys and re-emits them as `emuplay.hardwareKey` events. The event name must match `KeyEventBridge.EVENT_NAME`.
 
 ## Testing conventions
 
@@ -69,5 +69,5 @@ Both player screens wrap `WebPlayerScreen`, which owns the WebView, injected JS 
 
 - ESLint allows `void promise()` as a statement, and SonarCloud expects it for deliberate fire-and-forget promises.
 - Log through `createLogger('namespace')` from `src/utils/logger.ts`, not `console`.
-- AsyncStorage keys are versioned (`rommstream.foo.v2`). Bump the suffix when a value's meaning or default changes.
+- AsyncStorage keys are versioned (`emuplay.foo.v2`). Bump the suffix when a value's meaning or default changes.
 - Colors come from `src/theme/colors.ts`.

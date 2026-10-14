@@ -5,8 +5,8 @@ const log = createLogger('secureStore');
 
 // Two separate keychain entries: where the app is signed in (server and
 // account name), and the device's client API token.
-const CREDENTIALS_SERVICE = 'com.rommstream.credentials';
-const TOKENS_SERVICE = 'com.rommstream.tokens';
+const CREDENTIALS_SERVICE = 'com.emuplay.credentials';
+const TOKENS_SERVICE = 'com.emuplay.tokens';
 
 export interface StoredCredentials {
   serverUrl: string;

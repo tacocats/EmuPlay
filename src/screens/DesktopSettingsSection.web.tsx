@@ -70,14 +70,14 @@ export function DesktopSettingsSection() {
       <Text style={styles.heading}>Desktop</Text>
       <ToggleRow
         label="Start fullscreen"
-        help="Open RommStream fullscreen, for a TV or monitor. F11 switches in and out at any time."
+        help="Open EmuPlay fullscreen, for a TV or monitor. F11 switches in and out at any time."
         value={prefs.fullscreen}
         onToggle={() => update({ fullscreen: !prefs.fullscreen })}
         testID="settings-fullscreen"
       />
       <ToggleRow
         label="Start when I sign in"
-        help="Launch RommStream automatically when you sign in to this computer."
+        help="Launch EmuPlay automatically when you sign in to this computer."
         value={prefs.launchAtLogin}
         onToggle={() => update({ launchAtLogin: !prefs.launchAtLogin })}
         testID="settings-launch-at-login"
@@ -102,7 +102,7 @@ export function DesktopSettingsSection() {
         onPress={() => bridge.quit()}
         testID="settings-quit"
       >
-        <Text style={styles.buttonText}>Quit RommStream</Text>
+        <Text style={styles.buttonText}>Quit EmuPlay</Text>
       </FocusablePressable>
     </View>
   );
