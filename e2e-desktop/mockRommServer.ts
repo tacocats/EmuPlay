@@ -29,8 +29,8 @@ const PLATFORM = {
 };
 
 /** Device pairing: the code to approve, and the token approval issues. */
-export const USER_CODE = 'ABCD2345';
-export const CLIENT_TOKEN = `rmm_${'0'.repeat(64)}`;
+const USER_CODE = 'ABCD2345';
+const CLIENT_TOKEN = `rmm_${'0'.repeat(64)}`;
 const DEVICE_CODE = 'device-secret';
 
 const CONTAINER = 'romm-gb';

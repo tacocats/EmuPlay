@@ -86,7 +86,7 @@ export interface RommVirtualCollection {
 
 /** RomM's source-agnostic aggregate of a rom's metadata (IGDB and others),
  * already merged and sorted server-side — see `RommRomDetail.metadatum`. */
-export interface RommRomMetadata {
+interface RommRomMetadata {
   genres: string[];
   franchises: string[];
   collections: string[];
@@ -109,7 +109,7 @@ export interface RommRomDetail extends RommRom {
   metadatum?: RommRomMetadata;
 }
 
-export interface RommRecommendationReason {
+interface RommRecommendationReason {
   facet: string;
   value: string;
 }
@@ -142,7 +142,7 @@ export interface RommLaunchingSession {
   claimed_at: string;
 }
 
-export interface RommSessionTermination {
+interface RommSessionTermination {
   ended_by?: string | null;
   reason?: string | null;
   ended_at?: string | null;
@@ -161,7 +161,7 @@ export interface RommSessionStatus {
   termination?: RommSessionTermination | null;
 }
 
-export interface RommMemoryCardSummary {
+interface RommMemoryCardSummary {
   file_count: number;
   total_bytes: number;
   game_codes: string[];

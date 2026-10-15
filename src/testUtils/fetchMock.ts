@@ -9,7 +9,7 @@ export interface MockResponseInit {
   text?: string;
 }
 
-export function mockResponse({
+function mockResponse({
   status = 200,
   statusText = '',
   body,
@@ -51,7 +51,7 @@ export function fetchCall(index = 0): [string, RequestInit | undefined] {
 // React Native's TypeScript config types URL / URLSearchParams as RN's own
 // slimmed-down polyfills, so the WHATWG globals available in Jest are
 // narrowed here to the parts the tests use.
-export interface SearchParams {
+interface SearchParams {
   get(name: string): string | null;
   has(name: string): boolean;
 }

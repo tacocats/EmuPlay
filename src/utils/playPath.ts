@@ -49,7 +49,7 @@ export interface Config {
   EJS_NETPLAY_ENABLED?: boolean;
 }
 
-export interface StreamingContainer {
+interface StreamingContainer {
   platform: string;
   container?: string;
   label?: string;
@@ -218,17 +218,14 @@ const EJS_NIGHTLY_CORES_MAP: Record<string, string[]> = {
 /**
  * Resolve a platform through RomM's configured platform-version aliases.
  */
-export function resolvePlatformSlug(
-  platformSlug: string,
-  config?: Config,
-): string {
+function resolvePlatformSlug(platformSlug: string, config?: Config): string {
   return config?.PLATFORMS_VERSIONS?.[platformSlug] ?? platformSlug;
 }
 
 /**
  * Return the EmulatorJS cores available for a platform.
  */
-export function getSupportedEJSCores(
+function getSupportedEJSCores(
   platformSlug: string,
   netplayEnabled = false,
 ): string[] {
@@ -245,7 +242,7 @@ export function getSupportedEJSCores(
 /**
  * Check EmulatorJS support for a platform.
  */
-export function isEJSEmulationSupported(
+function isEJSEmulationSupported(
   platformSlug: string,
   heartbeat: Heartbeat,
   config?: Config,
@@ -266,7 +263,7 @@ export function isEJSEmulationSupported(
 /**
  * Check Ruffle support for a platform.
  */
-export function isRuffleEmulationSupported(
+function isRuffleEmulationSupported(
   platformSlug: string,
   heartbeat: Heartbeat,
   config?: Config,
@@ -283,7 +280,7 @@ export function isRuffleEmulationSupported(
 /**
  * Check js-dos support for a platform.
  */
-export function isJsDosEmulationSupported(
+function isJsDosEmulationSupported(
   platformSlug: string,
   heartbeat: Heartbeat,
   config?: Config,
@@ -300,14 +297,14 @@ export function isJsDosEmulationSupported(
 /**
  * Check whether the ROM is a js-dos bundle.
  */
-export function isJsDosBundle(rom: Rom | null | undefined): boolean {
+function isJsDosBundle(rom: Rom | null | undefined): boolean {
   return rom?.fs_extension?.toLowerCase() === 'jsdos';
 }
 
 /**
  * Check PICO-8 platform support.
  */
-export function isPico8EmulationSupported(
+function isPico8EmulationSupported(
   platformSlug: string,
   heartbeat: Heartbeat,
   config?: Config,
@@ -324,7 +321,7 @@ export function isPico8EmulationSupported(
 /**
  * Check whether the ROM is a PICO-8 cartridge.
  */
-export function isPico8Rom(rom: Rom | null | undefined): boolean {
+function isPico8Rom(rom: Rom | null | undefined): boolean {
   const name = rom?.fs_name?.toLowerCase();
 
   return name?.endsWith('.p8') === true || name?.endsWith('.p8.png') === true;
@@ -333,7 +330,7 @@ export function isPico8Rom(rom: Rom | null | undefined): boolean {
 /**
  * Find a configured streaming container for a platform.
  */
-export function containerForPlatform(
+function containerForPlatform(
   slug: string | null | undefined,
   streaming: StreamingConfig,
 ): StreamingContainer | null {
@@ -353,7 +350,7 @@ export function containerForPlatform(
 /**
  * Determine whether a ROM can be played through a browser emulator.
  */
-export function getBrowserPlayability(
+function getBrowserPlayability(
   rom: Rom | null | undefined,
   heartbeat: Heartbeat,
   config: Config | undefined,
@@ -402,20 +399,6 @@ export function getBrowserPlayability(
     canPlayInBrowser:
       canPlayEJS || canPlayJsDos || canPlayPico8 || canPlayRuffle,
   };
-}
-
-/**
- * Determine whether a ROM can be streamed.
- */
-export function canPlayStream(
-  rom: Rom | null | undefined,
-  streaming: StreamingConfig,
-): boolean {
-  if (!rom?.has_file_on_disk) {
-    return false;
-  }
-
-  return containerForPlatform(rom.platform_slug, streaming) !== null;
 }
 
 /**

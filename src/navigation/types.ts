@@ -1,5 +1,3 @@
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
 export type RootStackParamList = {
   Login: undefined;
   /** Top bar host: Home / Platforms / Search tabs. */
@@ -24,12 +22,6 @@ export type RootStackParamList = {
   };
   Settings: undefined;
 };
-
-/** Navigation prop of the Main screen, handed down to the tabs it hosts. */
-export type MainNavigation = NativeStackNavigationProp<
-  RootStackParamList,
-  'Main'
->;
 
 /**
  * Navigation surface for views hosted inline in MainScreen's content area

@@ -13,7 +13,7 @@ import {
 
 const log = createLogger('platformIcon');
 
-export { iconCandidates, inlineSvgClasses } from './platformIconCache';
+export { inlineSvgClasses } from './platformIconCache';
 
 interface Props {
   serverUrl: string;

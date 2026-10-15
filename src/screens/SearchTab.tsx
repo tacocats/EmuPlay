@@ -25,7 +25,7 @@ import { colors } from '../theme/colors';
 /** Platform chip meaning "don't filter by platform". */
 const ALL_PLATFORMS = null;
 
-export const MIN_QUERY_LENGTH = 2;
+const MIN_QUERY_LENGTH = 2;
 export const SEARCH_DEBOUNCE_MS = 400;
 
 interface Props {

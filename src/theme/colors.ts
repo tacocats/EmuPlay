@@ -64,5 +64,3 @@ export const platformGradients = [
   { name: 'green', from: '#1F5C3A', to: '#0B2418' },
   { name: 'rust', from: '#7A2A1F', to: '#2A0D08' },
 ] as const;
-
-export type ColorToken = keyof typeof colors;
