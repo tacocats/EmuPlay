@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Installing RommStream
+# Installing EmuPlay
 
-RommStream isn't in an app store yet, so today the only way to get it onto a
+EmuPlay isn't in an app store yet, so today the only way to get it onto a
 TV is to build it from source and install it yourself.
 
 ## Prerequisites
@@ -18,8 +18,8 @@ TV is to build it from source and install it yourself.
 ## Get the source
 
 ```sh
-git clone https://github.com/tacocats/RomMStream.git
-cd RomMStream
+git clone https://github.com/tacocats/EmuPlay.git
+cd EmuPlay
 npm install
 ```
 
@@ -50,7 +50,7 @@ with your RomM server address and credentials.
 
 :::tip[Building it yourself?]
 If you hit build errors, the project README's
-[Developers section](https://github.com/tacocats/RomMStream#developers)
+[Developers section](https://github.com/tacocats/EmuPlay#developers)
 tracks known environment gotchas (Gradle/JDK versions, dependency pins) and
 is kept up to date as the app changes.
 :::

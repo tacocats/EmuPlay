@@ -17,7 +17,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img src={logoUrl} alt="RommStream" className={styles.heroLogo} />
+        <img src={logoUrl} alt="EmuPlay" className={styles.heroLogo} />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
@@ -34,7 +34,7 @@ function HomepageHeader() {
               'button button--outline button--lg',
               styles.githubButton,
             )}
-            to="https://github.com/tacocats/RomMStream"
+            to="https://github.com/tacocats/EmuPlay"
           >
             View on GitHub
           </Link>

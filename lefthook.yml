@@ -17,6 +17,10 @@ pre-commit:
         jobs:
           - name: eslint
             glob: '*.{js,jsx,ts,tsx}'
+            # ESLint warns about explicitly passed files it ignores, which
+            # --max-warnings=0 turns into a failure, so don't pass them.
+            exclude:
+              - 'website/**'
             run: npx eslint --max-warnings=0 {staged_files}
 
           - name: typecheck

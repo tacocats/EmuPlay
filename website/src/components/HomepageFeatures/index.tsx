@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
     title: 'One-button play',
     description: (
       <>
-        RommStream automatically picks the right player for each ROM, from
+        EmuPlay automatically picks the right player for each ROM, from
         in-browser emulators to full emulator streaming, powered by your RomM
         server.
       </>
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Your server, your library',
     description: (
       <>
-        RommStream signs in to your own self-hosted{' '}
+        EmuPlay signs in to your own self-hosted{' '}
         <a href="https://github.com/rommapp/romm">Romm</a> server — no external
         accounts, no cloud dependency.
       </>

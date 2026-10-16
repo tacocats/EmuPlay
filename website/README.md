@@ -1,11 +1,12 @@
 # Website
 
-This is the RommStream docs & showcase site, built with [Docusaurus](https://docusaurus.io/).
+This is the EmuPlay docs & showcase site, built with [Docusaurus](https://docusaurus.io/).
 
-Pushes to `master` that touch this folder deploy automatically to GitHub
-Pages via `.github/workflows/website-deploy.yml`. The manual `npm run
-deploy` flow below is only needed if you want to publish outside that
-workflow.
+Pushes to `master` that touch this folder deploy automatically to
+[emuplay.app](https://emuplay.app) on Cloudflare Pages via
+`.github/workflows/website-deploy.yml`. Pull requests only build the site.
+The workflow needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`
+repository secrets and a Cloudflare Pages project named `emuplay`.
 
 ## Installation
 
@@ -33,16 +34,10 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-Using SSH:
+To deploy by hand outside the workflow (needs `wrangler login` or the same
+two Cloudflare env vars):
 
 ```bash
-USE_SSH=true npm run deploy
+npm run build
+npx wrangler pages deploy build --project-name=emuplay --branch=master
 ```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'RommStream',
+  title: 'EmuPlay',
   tagline:
     'Stream your games on your TV like you would Movies on Plex/Jellyfin',
   favicon: 'img/favicon.ico',
@@ -16,14 +16,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://tacocats.github.io',
+  url: 'https://emuplay.app',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/RomMStream/',
+  // Served from the root of the custom domain
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   organizationName: 'tacocats', // GitHub org/user name.
-  projectName: 'RomMStream', // GitHub repo name.
+  projectName: 'EmuPlay', // GitHub repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -43,8 +43,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/tacocats/RomMStream/tree/master/website/',
+          editUrl: 'https://github.com/tacocats/EmuPlay/tree/master/website/',
         },
         blog: false,
         theme: {
@@ -60,9 +59,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'RommStream',
+      title: 'EmuPlay',
       logo: {
-        alt: 'RommStream Logo',
+        alt: 'EmuPlay Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -73,7 +72,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/tacocats/RomMStream',
+          href: 'https://github.com/tacocats/EmuPlay',
           label: 'GitHub',
           position: 'right',
         },
@@ -82,7 +81,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} RommStream contributors.`,
+      copyright: `Copyright © ${new Date().getFullYear()} EmuPlay contributors.`,
     },
     prism: {
       theme: prismThemes.github,

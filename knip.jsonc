@@ -17,6 +17,8 @@
     "e2e/.eslintrc.js"
   ],
   "project": ["**/*.{js,mjs,ts,tsx}"],
+  // `website` is a separate Docusaurus project with its own package.json.
+  "ignore": ["website/**"],
   "ignoreDependencies": [
     // Pulled in by Babel's transforms of the RN preset, never imported.
     "@babel/runtime"
