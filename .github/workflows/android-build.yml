@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 22.13
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - run: npm run lint
       - run: npm run format:check
 
@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: 22.13
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - run: npm run typecheck
 
   test:
@@ -52,7 +52,7 @@ jobs:
         with:
           node-version: 22.13
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - run: npm run test:coverage -- --ci
       # Secrets aren't available to PRs from forks, so skip the scan there.
       - name: SonarQube Cloud scan
@@ -71,7 +71,7 @@ jobs:
         with:
           node-version: 22.13
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - uses: actions/setup-java@v4
         with:
           distribution: temurin

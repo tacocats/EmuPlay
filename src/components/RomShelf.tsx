@@ -53,7 +53,7 @@ export function RomShelf({
                 testID={`${testID}-tile-${item.id}`}
                 style={styles.tile}
               />
-              {subtitle && (
+              {!!subtitle && (
                 <Text style={styles.subtitle} numberOfLines={1}>
                   {subtitle}
                 </Text>
