@@ -82,7 +82,7 @@ export function DesktopSettingsSection() {
         onToggle={() => update({ launchAtLogin: !prefs.launchAtLogin })}
         testID="settings-launch-at-login"
       />
-      {host && serverUrl.startsWith('https:') && (
+      {!!host && serverUrl.startsWith('https:') && (
         <ToggleRow
           label="Trust this server's certificate"
           help={`Accept ${host}'s HTTPS certificate even if it's self-signed. Only turn this on for a server you run yourself.`}

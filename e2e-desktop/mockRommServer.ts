@@ -121,7 +121,7 @@ export async function startMockRomm(): Promise<MockRomm> {
           ? json({ id: 1, username: 'player' })
           : json({ detail: 'Not authenticated' }, 401);
       case 'POST /api/auth/device/init':
-        readJson(req).then(body => {
+        void readJson(req).then(body => {
           pairingRequest = body;
           json(
             {
@@ -137,7 +137,7 @@ export async function startMockRomm(): Promise<MockRomm> {
         });
         return;
       case 'POST /api/auth/device/token':
-        readJson(req).then(({ device_code }) => {
+        void readJson(req).then(({ device_code }) => {
           if (device_code !== DEVICE_CODE) {
             return json({ detail: 'expired_token' }, 400);
           }

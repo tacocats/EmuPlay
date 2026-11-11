@@ -44,7 +44,7 @@ export function PopupMenu({ visible, anchor, items, onClose, testID }: Props) {
         onPress={onClose}
         focusable={false}
         accessible={false}
-        testID={testID && `${testID}-backdrop`}
+        testID={testID ? `${testID}-backdrop` : undefined}
       />
       {anchor && (
         <View
@@ -62,7 +62,7 @@ export function PopupMenu({ visible, anchor, items, onClose, testID }: Props) {
                 onClose();
                 item.onSelect();
               }}
-              testID={testID && `${testID}-${item.id}`}
+              testID={testID ? `${testID}-${item.id}` : undefined}
             >
               <Text
                 style={[styles.itemText, item.destructive && styles.danger]}

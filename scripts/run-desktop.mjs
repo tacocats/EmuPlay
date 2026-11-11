@@ -33,6 +33,6 @@ const electron = spawn(require('electron'), ['dist'], {
   env,
 });
 electron.on('exit', code => {
-  Promise.resolve(server?.close()).finally(() => process.exit(code ?? 0));
+  void Promise.resolve(server?.close()).finally(() => process.exit(code ?? 0));
 });
 process.on('SIGINT', () => electron.kill('SIGINT'));
